@@ -1,0 +1,27 @@
+﻿<Page
+    x:Class="Selectel.Login"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Selectel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+
+    <Grid>
+        <Image x:Name="Logo" MaxHeight="100" VerticalAlignment="Top" Margin="100" />
+        <StackPanel VerticalAlignment="Center">
+            <Grid Grid.Row="1" Width="500" Margin="0, 0, 0, 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" x:Name="Token" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                <Button x:Name="Help" Click="OpenHelp" Grid.Column="1" Margin="5, 0, 0, 0">
+                    <TextBlock Text="?" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"></TextBlock>
+                </Button>
+            </Grid>
+            <Button HorizontalAlignment="Center" Width="500" x:Name="LoginBtn" Click="DoLogin" />
+        </StackPanel>
+    </Grid>
+</Page>
