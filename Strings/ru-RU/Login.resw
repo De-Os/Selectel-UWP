@@ -117,73 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Configuration" xml:space="preserve">
-    <value>Configuration</value>
-  </data>
-  <data name="Copied" xml:space="preserve">
-    <value>Copied!</value>
-  </data>
-  <data name="CPU" xml:space="preserve">
-    <value>CPU</value>
-  </data>
-  <data name="Distributive" xml:space="preserve">
-    <value>Distributive</value>
-  </data>
-  <data name="Gateway" xml:space="preserve">
-    <value>Gateway</value>
-  </data>
-  <data name="Gb" xml:space="preserve">
-    <value>Gb</value>
-  </data>
-  <data name="GHz" xml:space="preserve">
-    <value>GHz</value>
-  </data>
-  <data name="GPU" xml:space="preserve">
-    <value>GPU</value>
-  </data>
-  <data name="Hostname" xml:space="preserve">
-    <value>Hostname</value>
-  </data>
-  <data name="IP" xml:space="preserve">
-    <value>IP</value>
+  <data name="Error" xml:space="preserve">
+    <value>Неправильный токен</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>Login</value>
+    <value>Войти</value>
   </data>
-  <data name="Name" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="Network" xml:space="preserve">
-    <value>Network</value>
-  </data>
-  <data name="OS" xml:space="preserve">
-    <value>Operating system</value>
-  </data>
-  <data name="PaidTill" xml:space="preserve">
-    <value>Paid till %date%</value>
-  </data>
-  <data name="Password" xml:space="preserve">
-    <value>Password</value>
-  </data>
-  <data name="Raid" xml:space="preserve">
-    <value>Raid</value>
-  </data>
-  <data name="RAM" xml:space="preserve">
-    <value>RAM</value>
-  </data>
-  <data name="ROM" xml:space="preserve">
-    <value>ROM</value>
-  </data>
-  <data name="Search" xml:space="preserve">
-    <value>Search...</value>
-  </data>
-  <data name="Servers" xml:space="preserve">
-    <value>Servers</value>
-  </data>
-  <data name="Subnet" xml:space="preserve">
-    <value>Subnet</value>
-  </data>
-  <data name="Type" xml:space="preserve">
-    <value>Type</value>
+  <data name="TokenPlaceholder" xml:space="preserve">
+    <value>Токен...</value>
   </data>
 </root>

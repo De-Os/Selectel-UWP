@@ -118,72 +118,72 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Configuration" xml:space="preserve">
-    <value>Configuration</value>
+    <value>Конфигурация</value>
   </data>
   <data name="Copied" xml:space="preserve">
-    <value>Copied!</value>
+    <value>Скопировано!</value>
   </data>
   <data name="CPU" xml:space="preserve">
-    <value>CPU</value>
+    <value>Процессор</value>
   </data>
   <data name="Distributive" xml:space="preserve">
-    <value>Distributive</value>
+    <value>Дистрибутив</value>
   </data>
   <data name="Gateway" xml:space="preserve">
-    <value>Gateway</value>
+    <value>Шлюз</value>
   </data>
   <data name="Gb" xml:space="preserve">
-    <value>Gb</value>
+    <value>ГБ</value>
   </data>
   <data name="GHz" xml:space="preserve">
-    <value>GHz</value>
+    <value>ГГц</value>
   </data>
   <data name="GPU" xml:space="preserve">
-    <value>GPU</value>
+    <value>Видеоадаптер</value>
   </data>
   <data name="Hostname" xml:space="preserve">
-    <value>Hostname</value>
+    <value>Имя хоста</value>
   </data>
   <data name="IP" xml:space="preserve">
     <value>IP</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>Login</value>
+    <value>Логин</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Name</value>
+    <value>Имя</value>
   </data>
   <data name="Network" xml:space="preserve">
-    <value>Network</value>
+    <value>Сеть</value>
   </data>
   <data name="OS" xml:space="preserve">
-    <value>Operating system</value>
+    <value>Система</value>
   </data>
   <data name="PaidTill" xml:space="preserve">
-    <value>Paid till %date%</value>
+    <value>Оплачено до %date%</value>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>Password</value>
+    <value>Пароль</value>
   </data>
   <data name="Raid" xml:space="preserve">
     <value>Raid</value>
   </data>
   <data name="RAM" xml:space="preserve">
-    <value>RAM</value>
+    <value>ОЗУ</value>
   </data>
   <data name="ROM" xml:space="preserve">
-    <value>ROM</value>
+    <value>ПЗУ</value>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>Search...</value>
+    <value>Поиск...</value>
   </data>
   <data name="Servers" xml:space="preserve">
-    <value>Servers</value>
+    <value>Сервера</value>
   </data>
   <data name="Subnet" xml:space="preserve">
-    <value>Subnet</value>
+    <value>Подсеть</value>
   </data>
   <data name="Type" xml:space="preserve">
-    <value>Type</value>
+    <value>Тип</value>
   </data>
 </root>

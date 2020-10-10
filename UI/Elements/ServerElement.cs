@@ -1,11 +1,8 @@
 ﻿using Selectel.Libs;
 using Selectel.Libs.APi.Responses;
-using System;
-using System.Threading;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 
 namespace Selectel.UI.Elements
