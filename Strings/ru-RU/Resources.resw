@@ -147,6 +147,12 @@
   <data name="IP" xml:space="preserve">
     <value>IP</value>
   </data>
+  <data name="Location" xml:space="preserve">
+    <value>Название локации</value>
+  </data>
+  <data name="LocationUUID" xml:space="preserve">
+    <value>UUID локации</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Логин</value>
   </data>
@@ -183,7 +189,13 @@
   <data name="Subnet" xml:space="preserve">
     <value>Подсеть</value>
   </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Теги</value>
+  </data>
   <data name="Type" xml:space="preserve">
     <value>Тип</value>
+  </data>
+  <data name="UUID" xml:space="preserve">
+    <value>UUID</value>
   </data>
 </root>

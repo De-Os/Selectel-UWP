@@ -31,6 +31,7 @@ namespace Selectel.Libs.Api.Methods
                 return this._api.Call<ServersResponse.Dashboard.Maintenance>(request);
             }
         }
+
         public class ServiceMethod
         {
             private SelectelApi _api;
@@ -49,6 +50,7 @@ namespace Selectel.Libs.Api.Methods
                 return this._api.Call<ServersResponse.Service.Server>(request);
             }
         }
+
         public class ResourcesMethod
         {
             private SelectelApi _api;
@@ -61,6 +63,7 @@ namespace Selectel.Libs.Api.Methods
                 return this._api.Call<List<ServersResponse.Resource.ResourceItem>>(request);
             }
         }
+
         public class PowerMethod
         {
             private SelectelApi _api;
@@ -89,6 +92,7 @@ namespace Selectel.Libs.Api.Methods
                 this._api.Call<object>(request, SelectelApi.RequestType.PUT);
             }
         }
+
         public class LocationMethod
         {
             private SelectelApi _api;
@@ -101,6 +105,7 @@ namespace Selectel.Libs.Api.Methods
                 return this._api.Call<ServersResponse.Location.LocationInfo>(request);
             }
         }
+
         public class ConsumptionMethod
         {
             private SelectelApi _api;
@@ -115,6 +120,7 @@ namespace Selectel.Libs.Api.Methods
                 return this._api.Call<List<List<int>>>(request);
             }
         }
+
         public class NetworkMethod
         {
             private SelectelApi _api;
@@ -127,6 +133,7 @@ namespace Selectel.Libs.Api.Methods
                 return this._api.Call<List<ServersResponse.Network.IPinfo>>(request);
             }
         }
+
         public class BootMethod
         {
             private SelectelApi _api;

@@ -33,7 +33,6 @@ namespace Selectel.Libs.Api
                 throw new System.Exception(result.Status);
             }
             return result.Result;
-
         }
 
         private string Call(RestRequest request, RequestType type)
@@ -45,8 +44,10 @@ namespace Selectel.Libs.Api
             {
                 case RequestType.POST:
                     return this._http.Post(request).Content;
+
                 case RequestType.PUT:
                     return this._http.Put(request).Content;
+
                 default:
                     return this._http.Get(request).Content;
             }

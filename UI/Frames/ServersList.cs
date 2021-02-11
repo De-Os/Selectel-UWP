@@ -16,6 +16,7 @@ namespace Selectel.UI.Frames
         {
             HorizontalAlignment = HorizontalAlignment.Stretch
         };
+
         private string Type;
 
         public ServersList(string type)
@@ -91,6 +92,7 @@ namespace Selectel.UI.Frames
         public class ServerBtn : Button
         {
             public readonly string ServerName;
+
             public ServerBtn(ServersResponse.Resource.ResourceItem server)
             {
                 this.ServerName = server.UserDescription?.Length > 0 ? server.UserDescription : server.Info;

@@ -35,11 +35,39 @@ namespace Selectel.UI.Frames
 
         private void Load()
         {
+            this.LoadMainPivot();
             this.LoadNetworkPivot();
             this.LoadOSPivot();
             this.LoadConfigPivot();
 
             this.Children.Remove(this.Children[0]);
+        }
+
+        private void LoadMainPivot()
+        {
+            var panel = new StackPanel
+            {
+                Margin = new Thickness(10),
+                VerticalAlignment = VerticalAlignment.Stretch,
+                HorizontalAlignment = HorizontalAlignment.Stretch
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                var loc = App.Selectel.Servers.Location.Get(this.Server.LocationUUID);
+                App.UIThread(() =>
+                {
+                    panel.Children.Add(this.BaseElement(new TextBlock { Text = Utils.LocString("UUID") }, new TextWithCopy(this.Server.UUID)));
+                    panel.Children.Add(this.BaseElement(new TextBlock { Text = Utils.LocString("LocationUUID") }, new TextWithCopy(this.Server.LocationUUID)));
+                    panel.Children.Add(this.BaseElement(new TextBlock { Text = Utils.LocString("Location") }, new TextWithCopy(loc.Name)));
+                    if (this.Server.Tags?.Count > 0)
+                    {
+                        panel.Children.Add(this.BaseElement(new TextBlock { Text = Utils.LocString("Tags") }, new TextWithCopy(String.Join(", ", this.Server.Tags))));
+                    }
+                });
+            });
+
+            this.AddPivotElement(this.Server.UserDescription?.Length > 0 ? this.Server.UserDescription : this.Server.Info, panel);
         }
 
         private void LoadNetworkPivot()
@@ -159,6 +187,7 @@ namespace Selectel.UI.Frames
 
             this.AddPivotElement("Network", network);
         }
+
         private void LoadOSPivot()
         {
             var os = new StackPanel
@@ -183,6 +212,7 @@ namespace Selectel.UI.Frames
 
             this.AddPivotElement("OS", os);
         }
+
         private void LoadConfigPivot()
         {
             var config = new StackPanel
@@ -252,6 +282,7 @@ namespace Selectel.UI.Frames
                 }
             });
         }
+
         private Grid BaseElement(FrameworkElement element1, FrameworkElement element2)
         {
             var grid = new Grid { HorizontalAlignment = HorizontalAlignment.Stretch };

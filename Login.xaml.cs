@@ -12,6 +12,7 @@ namespace Selectel
     public sealed partial class Login : Page
     {
         public delegate void Event();
+
         public event Event OnSuccess;
 
         public Login()
@@ -41,6 +42,7 @@ namespace Selectel
                 await new MessageDialog(Utils.LocString("Login/Error")).ShowAsync();
             }
         }
+
         private async void OpenHelp(object btn, RoutedEventArgs args) => await Windows.System.Launcher.LaunchUriAsync(new Uri("https://my.selectel.ru/profile/apikeys"));
     }
 }

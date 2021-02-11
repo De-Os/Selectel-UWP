@@ -28,6 +28,7 @@ namespace Selectel.UI.Elements
             CornerRadius = new CornerRadius(3),
             Margin = new Thickness(10, 0, 5, 0)
         };
+
         private readonly string UUID;
         private bool _rebooting = false;
 
@@ -87,6 +88,7 @@ namespace Selectel.UI.Elements
                 this._rebooting = false;
             });
         }
+
         private void OnPower()
         {
             if (this._rebooting) return;

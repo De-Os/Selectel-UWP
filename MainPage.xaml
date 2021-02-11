@@ -12,6 +12,6 @@
         <NavigationView.MenuItems>
             <NavigationViewItem Icon="MapDrive" x:Name="MenuItemServers"></NavigationViewItem>
         </NavigationView.MenuItems>
-        <Frame x:Name="ContentFrame" x:FieldModifier="public"/>
+        <Frame x:Name="ContentFrame" x:FieldModifier="public" />
     </NavigationView>
 </Page>

@@ -16,7 +16,7 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBox Grid.Column="0" x:Name="Token" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                <TextBox Grid.Column="0" x:Name="Token" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
                 <Button x:Name="Help" Click="OpenHelp" Grid.Column="1" Margin="5, 0, 0, 0">
                     <TextBlock Text="?" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"></TextBlock>
                 </Button>

@@ -8,7 +8,6 @@ using Windows.UI;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
-
 namespace Selectel.UI.Elements
 {
     public class TextWithCopy : Grid
