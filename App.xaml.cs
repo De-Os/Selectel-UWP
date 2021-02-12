@@ -34,35 +34,38 @@ namespace Selectel
                 Window.Current.Content = rootFrame;
             }
 
-            if (e.PrelaunchActivated == false)
+            if (this.DoesTokenExists())
             {
-                if (rootFrame.Content == null)
-                {
-                    if (this.DoesTokenExists())
-                    {
-                        this.LoadMain();
-                        rootFrame.Content = App.Main;
-                    }
-                    else
-                    {
-                        App.Login = new Login();
-                        App.Login.OnSuccess += () =>
-                        {
-                            this.LoadMain();
-                            rootFrame.Content = App.Main;
-                            App.Login = null;
-                        };
-                        rootFrame.Content = App.Login;
-                    }
-                }
-                Window.Current.Activate();
+                this.LoadMain();
+                rootFrame.Content = App.Main;
             }
+            else
+            {
+                App.Login = new Login();
+                App.Login.OnSuccess += () =>
+                {
+                    this.LoadMain();
+                    rootFrame.Content = App.Main;
+                    App.Login = null;
+                };
+                rootFrame.Content = App.Login;
+            }
+
+            if (!Window.Current.Visible) Window.Current.Activate();
         }
 
         private void LoadMain()
         {
             App.Selectel = new SelectelApi(new PasswordVault().Retrieve("selectel", "default").Password);
             App.Main = new MainPage();
+            App.Main.OnLogout += this.Logout;
+        }
+
+        private void Logout()
+        {
+            var vault = new PasswordVault();
+            vault.Remove(vault.Retrieve("selectel", "default"));
+            this.OnLaunched(null);
         }
 
         private bool DoesTokenExists()

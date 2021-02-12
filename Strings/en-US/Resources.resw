@@ -147,6 +147,9 @@
   <data name="IP" xml:space="preserve">
     <value>IP</value>
   </data>
+  <data name="Kbs" xml:space="preserve">
+    <value>Kb/s</value>
+  </data>
   <data name="Location" xml:space="preserve">
     <value>Location name</value>
   </data>
@@ -186,6 +189,9 @@
   <data name="Servers" xml:space="preserve">
     <value>Servers</value>
   </data>
+  <data name="Speed" xml:space="preserve">
+    <value>Speed</value>
+  </data>
   <data name="Subnet" xml:space="preserve">
     <value>Subnet</value>
   </data>
@@ -194,6 +200,9 @@
   </data>
   <data name="Type" xml:space="preserve">
     <value>Type</value>
+  </data>
+  <data name="Usage" xml:space="preserve">
+    <value>Usage</value>
   </data>
   <data name="UUID" xml:space="preserve">
     <value>UUID</value>

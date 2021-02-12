@@ -21,7 +21,7 @@ namespace Selectel.Libs.Api.Methods
 
         public class DashboardMethod
         {
-            private SelectelApi _api;
+            private readonly SelectelApi _api;
 
             internal DashboardMethod(SelectelApi api) => this._api = api;
 
@@ -34,7 +34,7 @@ namespace Selectel.Libs.Api.Methods
 
         public class ServiceMethod
         {
-            private SelectelApi _api;
+            private readonly SelectelApi _api;
 
             internal ServiceMethod(SelectelApi api) => this._api = api;
 

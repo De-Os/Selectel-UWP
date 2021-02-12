@@ -26,7 +26,7 @@ namespace Selectel.Libs.Api
         public ResponseType Call<ResponseType>(RestRequest request, RequestType type = RequestType.GET)
         {
             dynamic result = this.Call(request, type);
-            System.Diagnostics.Debug.WriteLine((string)result);
+            System.Diagnostics.Debug.WriteLine($"{request.Resource}: \n\n${result}");
             result = JsonConvert.DeserializeObject<BasicResponse<ResponseType>>(result);
             if (result.Status != "SUCCESS")
             {

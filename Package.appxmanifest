@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="bc73fe1a-5d52-4074-be21-f75741f0f45b"
-    Publisher="CN=al3ta"
+    Name="979al3taibi.Selecteldashboard"
+    Publisher="CN=81925F28-76A4-47E7-BCD3-A44FE9D3DCFC"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="bc73fe1a-5d52-4074-be21-f75741f0f45b" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="1346b165-5c3f-4de7-b83f-b28b1c849f21" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>Selectel</DisplayName>
-    <PublisherDisplayName>al3ta</PublisherDisplayName>
+    <DisplayName>Selectel dashboard</DisplayName>
+    <PublisherDisplayName>al3taibi</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -35,10 +35,15 @@
         DisplayName="Selectel"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="Selectel"
+        Description="Dashboard for Selectel hosting"
         BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\SmallTile.png" Square310x310Logo="Assets\LargeTile.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="portrait"/>
+          <uap:Rotation Preference="landscape"/>
+          <uap:Rotation Preference="landscapeFlipped"/>
+          <uap:Rotation Preference="portraitFlipped"/></uap:InitialRotationPreference>
       </uap:VisualElements>
     </Application>
   </Applications>

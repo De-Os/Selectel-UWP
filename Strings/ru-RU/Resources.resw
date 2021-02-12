@@ -147,6 +147,9 @@
   <data name="IP" xml:space="preserve">
     <value>IP</value>
   </data>
+  <data name="Kbs" xml:space="preserve">
+    <value>Кб/с</value>
+  </data>
   <data name="Location" xml:space="preserve">
     <value>Название локации</value>
   </data>
@@ -186,6 +189,9 @@
   <data name="Servers" xml:space="preserve">
     <value>Сервера</value>
   </data>
+  <data name="Speed" xml:space="preserve">
+    <value>Скорость</value>
+  </data>
   <data name="Subnet" xml:space="preserve">
     <value>Подсеть</value>
   </data>
@@ -194,6 +200,9 @@
   </data>
   <data name="Type" xml:space="preserve">
     <value>Тип</value>
+  </data>
+  <data name="Usage" xml:space="preserve">
+    <value>Использование</value>
   </data>
   <data name="UUID" xml:space="preserve">
     <value>UUID</value>

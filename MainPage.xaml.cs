@@ -7,6 +7,10 @@ namespace Selectel
 {
     public sealed partial class MainPage : Page
     {
+        public delegate void LogoutEvent();
+
+        public LogoutEvent OnLogout;
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -14,6 +18,8 @@ namespace Selectel
 
             this.Navigation.SelectionChanged += this.NavigationChanged;
             this.Navigation.SelectedItem = this.MenuItemServers;
+
+            this.Logout.Tapped += (a, b) => this.OnLogout?.Invoke();
         }
 
         private void NavigationChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
@@ -31,6 +37,7 @@ namespace Selectel
         private void LoadLocalizations()
         {
             this.MenuItemServers.Content = new TextBlock { Text = Utils.LocString("Servers") };
+            this.Logout.Content = new TextBlock { Text = Utils.LocString("Login/Logout") };
         }
     }
 }

@@ -1,13 +1,15 @@
-﻿using LiveCharts;
-using LiveCharts.Uwp;
-using Selectel.Libs;
+﻿using Selectel.Libs;
 using Selectel.Libs.APi.Responses;
 using Selectel.UI.Elements;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Windows.UI;
+using Windows.UI.Text;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Shapes;
 
 namespace Selectel.UI.Frames
 {
@@ -143,45 +145,88 @@ namespace Selectel.UI.Frames
 
             Task.Factory.StartNew(() =>
             {
-                var speed = App.Selectel.Servers.Consumption.Get(this.Server.UUID, till: DateTime.Now.ToUnixTime());
+                var speed = App.Selectel.Servers.Consumption.Get(this.Server.UUID, till: DateTime.UtcNow.ToUnixTime());
                 if (speed == null) return;
 
-                speed.RemoveAll(i => i[1] <= 0 || i[2] <= 0);
-                var down = speed.Select(i => Math.Round(Convert.ToDouble(i[1]) / 8 / 1024, 2)).ToList();
-                var up = speed.Select(i => Math.Round(Convert.ToDouble(i[2]) / 8 / 1024, 2)).ToList();
+                var trueSpeed = speed.Select(i => new
+                {
+                    Time = i[0].ToDateTime().ToLocalTime(),
+                    Down = Math.Round(Convert.ToDouble(i[1]) / 8 / 1024, 2),
+                    Up = Math.Round(Convert.ToDouble(i[2]) / 8 / 1024, 2)
+                });
+                var max = trueSpeed.OrderByDescending(i => i.Down).First().Down;
+                if (trueSpeed.OrderByDescending(i => i.Up).First().Up > max) max = trueSpeed.OrderByDescending(i => i.Up).First().Up;
 
                 App.UIThread(() =>
                 {
+                    var grid = new Grid
+                    {
+                        HorizontalAlignment = HorizontalAlignment.Stretch,
+                        Margin = new Thickness(0, 10, 0, 0)
+                    };
+                    var upBrush = new SolidColorBrush(Colors.YellowGreen);
+                    var downBrush = new SolidColorBrush(getHalfTransparent(Colors.DarkGreen));
+
                     network.Children.Add(new TextBlock
                     {
-                        Text = speed.First()[0].ToDateTime().ToString("dd.mm.yy HH:mm") + " — " + speed.Last()[0].ToDateTime().ToString("dd.mm.yy HH:mm"),
-                        VerticalAlignment = VerticalAlignment.Center,
-                        HorizontalAlignment = HorizontalAlignment.Center
+                        FontSize = 30,
+                        Text = Utils.LocString("Usage"),
+                        Margin = new Thickness(0, 10, 0, 5)
                     });
 
-                    var collection = new SeriesCollection {
-                        new LineSeries{
-                            Title = "⬇",
-                            Values = new ChartValues<double>(down)
-                        },
-                        new LineSeries
-                        {
-                            Title = "⬆",
-                            Values = new ChartValues<double>(up)
-                        }
-                    };
-                    var chart = new CartesianChart
+                    grid.Children.Add(new TextBlock
                     {
-                        Series = collection,
-                        AxisX = new AxesCollection {
-                            new Axis{
-                                Labels = speed.Select(s => s[0].ToDateTime().ToString("HH:mm")).ToArray()
-                            }
-                        },
-                        Height = 500,
-                        Margin = new Thickness(10)
-                    };
-                    network.Children.Add(chart);
+                        Text = $"{max} {Utils.LocString("Kbs")}",
+                        VerticalAlignment = VerticalAlignment.Top,
+                        FontWeight = FontWeights.Bold,
+                        Padding = new Thickness(0, 0, 2, 0)
+                    });
+                    grid.Children.Add(new TextBlock
+                    {
+                        Text = Utils.LocString("Speed"),
+                        VerticalAlignment = VerticalAlignment.Bottom,
+                        FontWeight = FontWeights.SemiBold,
+                        Padding = new Thickness(0, 0, 2, 0)
+                    });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Auto) });
+
+                    foreach (var s in trueSpeed)
+                    {
+                        var up = new Rectangle()
+                        {
+                            Fill = upBrush,
+                            MinWidth = 1,
+                            MinHeight = 1,
+                            MaxHeight = 300,
+                            Height = getSize(s.Up),
+                            HorizontalAlignment = HorizontalAlignment.Stretch,
+                            VerticalAlignment = VerticalAlignment.Bottom
+                        };
+                        var down = new Rectangle()
+                        {
+                            Fill = downBrush,
+                            MinWidth = 1,
+                            MinHeight = 1,
+                            MaxHeight = 300,
+                            Height = getSize(s.Down),
+                            HorizontalAlignment = HorizontalAlignment.Stretch,
+                            VerticalAlignment = VerticalAlignment.Bottom
+                        };
+                        Grid.SetColumn(up, grid.ColumnDefinitions.Count);
+                        Grid.SetColumn(down, grid.ColumnDefinitions.Count);
+                        grid.Children.Add(up);
+                        grid.Children.Add(down);
+                        grid.ColumnDefinitions.Add(new ColumnDefinition());
+                    }
+
+                    network.Children.Add(grid);
+
+                    double getSize(double s) => 300 * (s / max);
+                    Color getHalfTransparent(Color color)
+                    {
+                        color.A = 155;
+                        return color;
+                    }
                 });
             });
 
@@ -278,6 +323,7 @@ namespace Selectel.UI.Frames
                 Content = new ScrollViewer
                 {
                     HorizontalScrollMode = Windows.UI.Xaml.Controls.ScrollMode.Disabled,
+                    VerticalAlignment = VerticalAlignment.Stretch,
                     Content = content
                 }
             });

@@ -12,6 +12,9 @@
         <NavigationView.MenuItems>
             <NavigationViewItem Icon="MapDrive" x:Name="MenuItemServers"></NavigationViewItem>
         </NavigationView.MenuItems>
+        <NavigationView.PaneFooter>
+            <NavigationViewItem Icon="Clear" x:Name="Logout"></NavigationViewItem>
+        </NavigationView.PaneFooter>
         <Frame x:Name="ContentFrame" x:FieldModifier="public" />
     </NavigationView>
 </Page>
