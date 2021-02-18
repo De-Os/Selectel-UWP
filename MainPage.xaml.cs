@@ -1,5 +1,6 @@
 ﻿using Selectel.Libs;
 using Selectel.UI.Frames;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -20,6 +21,28 @@ namespace Selectel
             this.Navigation.SelectedItem = this.MenuItemServers;
 
             this.Logout.Tapped += (a, b) => this.OnLogout?.Invoke();
+            this.Balance.Tapped += (a, b) =>
+            {
+                this.Navigation.SelectedItem = null;
+                this.ContentFrame.Content = new PaymentHistory();
+            };
+            this.UpdateBalance();
+        }
+
+        public void UpdateBalance()
+        {
+            this.Balance.Content = new ProgressRing { IsActive = true };
+            Task.Factory.StartNew(() =>
+            {
+                var balance = App.Selectel.Billing.Balance.Get();
+                App.UIThread(() =>
+                {
+                    this.Balance.Content = new TextBlock
+                    {
+                        Text = Utils.LocString("Balance").Replace("%money%", $"{balance.Primary.Main / 100} ₽")
+                    };
+                });
+            });
         }
 
         private void NavigationChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)

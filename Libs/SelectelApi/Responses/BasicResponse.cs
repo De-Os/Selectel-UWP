@@ -27,5 +27,8 @@ namespace Selectel.Libs.Api.Responses
 
         [JsonProperty("result")]
         public Type Result { get; set; }
+
+        [JsonProperty("data")]
+        public Type Data { get; set; }
     }
 }

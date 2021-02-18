@@ -9,7 +9,7 @@
   <Identity
     Name="979al3taibi.Selecteldashboard"
     Publisher="CN=81925F28-76A4-47E7-BCD3-A44FE9D3DCFC"
-    Version="1.0.0.0" />
+    Version="1.1.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="1346b165-5c3f-4de7-b83f-b28b1c849f21" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

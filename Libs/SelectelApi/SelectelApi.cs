@@ -15,7 +15,7 @@ namespace Selectel.Libs.Api
             PUT
         }
 
-        private RestClient _http = new RestClient("https://api.selectel.ru/");
+        private readonly RestClient _http = new RestClient("https://api.selectel.ru/");
         private readonly string _token;
 
         public SelectelApi(string token)
@@ -28,11 +28,11 @@ namespace Selectel.Libs.Api
             dynamic result = this.Call(request, type);
             System.Diagnostics.Debug.WriteLine($"{request.Resource}: \n\n${result}");
             result = JsonConvert.DeserializeObject<BasicResponse<ResponseType>>(result);
-            if (result.Status != "SUCCESS")
+            if (result.Status != "SUCCESS" && result.Status != "success")
             {
                 throw new System.Exception(result.Status);
             }
-            return result.Result;
+            return result.Data ?? result.Result;
         }
 
         private string Call(RestRequest request, RequestType type)
@@ -54,5 +54,6 @@ namespace Selectel.Libs.Api
         }
 
         public Servers Servers => new Servers(this);
+        public Billing Billing => new Billing(this);
     }
 }

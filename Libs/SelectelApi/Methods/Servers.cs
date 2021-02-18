@@ -6,7 +6,7 @@ namespace Selectel.Libs.Api.Methods
 {
     public class Servers
     {
-        private SelectelApi _api;
+        private readonly SelectelApi _api;
 
         internal Servers(SelectelApi api) => this._api = api;
 
